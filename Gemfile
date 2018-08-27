@@ -38,9 +38,9 @@ end
 
 platforms :mri, :mingw, :x64_mingw do
   # Optional gem for exporting the gantt to a PNG file, not supported with jruby
-  group :rmagick do
-    gem "rmagick", ">= 2.14.0"
-  end
+  # group :rmagick do
+  #   gem "rmagick", ">= 2.14.0"
+  # end
 
   # Optional Markdown support, not for JRuby
   group :markdown do
@@ -64,7 +64,7 @@ if File.exist?(database_file)
       when /postgresql/
         gem "pg", "~> 1.0.0", :platforms => [:mri, :mingw, :x64_mingw]
       when /sqlite3/
-        gem "sqlite3", "~>1.3.12", :platforms => [:mri, :mingw, :x64_mingw]
+        gem 'sqlite3', git: "https://github.com/larskanis/sqlite3-ruby", branch: "add-gemspec"
       when /sqlserver/
         gem "tiny_tds", "~> 1.0.5", :platforms => [:mri, :mingw, :x64_mingw]
         gem "activerecord-sqlserver-adapter", :platforms => [:mri, :mingw, :x64_mingw]
